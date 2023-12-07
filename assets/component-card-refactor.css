@@ -1,3 +1,19 @@
+.card-refactor {
+  min-width: 350px;
+  box-sizing: border-box;
+}
+.card-refactor__link {
+  text-decoration: none;
+}
+.card-refactor__img {
+  width: 100%;
+}
+.card-refactor__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .card-refactor__title {
   margin: 0;
   color: #656874;
@@ -17,8 +33,17 @@
   border-radius: 40px;
   border: 1px solid #464b90;
   background: #464b90;
+  font-family: GothicA1-Regular;
   color: #fff;
   text-align: center;
   font-size: 16px;
   line-height: 26px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+.card-refactor__btn:hover {
+  background: #363a70;
+}
+.card-refactor__btn:active {
+  background: #1f2151;
 }

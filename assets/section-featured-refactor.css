@@ -11,5 +11,17 @@
   font-size: 26px;
   font-style: normal;
   font-weight: 900;
-  line-height: 36px; /* 138.462% */
+  line-height: 36px;
+}
+.refactor__content {
+  display: grid;
+  row-gap: 50px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 756px) {
+  .refactor__content {
+    row-gap: 119px;
+    column-gap: 40px;
+    grid-template-columns: 1fr 1fr;
+  }
 }

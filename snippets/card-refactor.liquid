@@ -1,15 +1,20 @@
 {{ 'component-card-refactor.css' | asset_url | stylesheet_tag }}
 
-<div class="card-refactor">
-  <div class="card-refactor__image">
-    <img src="{{ card_product.featured_media | img_url: 'medium' }}" alt="{{ card_product.title | escape }}">
-  </div>
+<div class="card-refactor {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <a class="card-refactor__link" href="{{ card_product.url }}">
+    <div class="card-refactor__media">
+      <img class="card-refactor__img" src="{{ card_product.featured_media | img_url: 'large' }}" alt="{{ card_product.title | escape }}">
+    </div>
   
+  
+    <div class="card-refactor__content">
+      <h3 class="card-refactor__title">
+        {{ card_product.title }}
+      </h3>
+    </div>
+  </a>
+
   <div class="card-refactor__content">
-    <h3 class="card-refactor__title">
-      {{ card_product.title }}
-    </h3>
-    
     <button class="card-refactor__btn">
       Add to Cart - {{ card_product.price | money }}
     </button>
