@@ -15,8 +15,47 @@
   </a>
 
   <div class="card-refactor__content">
-    <button class="card-refactor__btn">
-      Add to Cart - {{ card_product.price | money }}
-    </button>
+    <product-form
+      class="product-form"
+      data-section-id="{{ section.id }}"
+    >
+      {%- form 'product',
+        card_product,
+        id: card_product_form_id,
+        class: 'form',
+        novalidate: 'novalidate',
+        data-type: 'add-to-cart-form'
+      -%}
+        <input
+          type="hidden"
+          name="id"
+          value="{{ card_product.selected_or_first_available_variant.id }}"
+          {% if card_product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
+            disabled
+          {% endif %}
+          class="product-variant-id"
+        >
+        <div class="product-form__buttons">
+          <button
+            id="ProductSubmitButton-{{ section_id }}"
+            type="submit"
+            name="add"
+            class="card-refactor__btn"
+            {% if card_product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
+              disabled
+            {% endif %}
+          >
+            <span>
+              {%- if card_product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                {{ 'products.product.sold_out' | t }}
+              {%- else -%}
+                {{ 'products.product.add_to_cart' | t }} - {{ card_product.price | money }}
+              {%- endif -%}
+            </span>
+            {%- render 'loading-spinner' -%}
+          </button>
+        </div>
+      {%- endform -%}
+    </product-form>
   </div>
 </section>
