@@ -1,0 +1,17 @@
+
+<div class="card-refactor">
+  <div class="card-refactor__image">
+    <img src="{{ card_product.featured_media | img_url: 'medium' }}" alt="{{ card_product.title | escape }}">
+  </div>
+  
+  <div class="card-refactor__content">
+    <h3 class="card-refactor__title">
+      {{ card_product.title }}
+    </h3>
+    
+    <button class="card-refactor__add-to-cart-btn" data-product-id="{{ card_product.id }}">
+      Add to Cart - {{ card_product.price | money }}
+    </button>
+  </div>
+</div>
+
