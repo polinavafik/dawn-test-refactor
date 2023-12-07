@@ -3511,3 +3511,28 @@ details-disclosure > details {
     --border-offset: 0px; /* Prevent the border from growing on buttons when this effect is on. */
   }
 }
+
+@font-face {
+  font-family: 'GothicA1-Black';
+  src: url('GothicA1-Black.woff2') format('woff2'), url('GothicA1-Black.woff') format('woff');
+}
+@font-face {
+  font-family: 'GothicA1-Bold';
+  src: url('GothicA1-Bold.woff2') format('woff2'), url('GothicA1-Bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'GothicA1-Regular';
+  src: url('GothicA1-Regular.woff2') format('woff2'), url('GothicA1-Regular.woff') format('woff');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+body,
+p,
+a {
+  font-family: 'GothicA1-Regular' !important;
+}
