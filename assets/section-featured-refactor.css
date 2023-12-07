@@ -1,0 +1,15 @@
+.refactor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.refactor__title {
+  color: #656874;
+  text-align: center;
+  font-family: Gothic A1;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 36px; /* 138.462% */
+}

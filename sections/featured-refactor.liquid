@@ -1,3 +1,5 @@
+{{ 'section-featured-refactor.css' | asset_url | stylesheet_tag }}
+
 <div class="refactor">
   <div class="refactor__top">
     <h2 class="refactor__title">
@@ -7,21 +9,8 @@
 
   <div class="refactor__content">
     {%- for product in section.settings.collection.products -%}
-      {% comment %} <div class="refactor__card refactor-card">
-        <div class="refactor-card__img">
-          <img src="{{ product.image.src | img_url: 'medium' }}" alt="{{ product.title | escape }}">
-        </div>
-      </div> {% endcomment %}
-
       {% render 'card-refactor',
         card_product: product,
-        media_aspect_ratio: section.settings.image_ratio,
-        image_shape: section.settings.image_shape,
-        show_secondary_image: section.settings.show_secondary_image,
-        show_vendor: section.settings.show_vendor,
-        show_rating: section.settings.show_rating,
-        show_quick_add: section.settings.enable_quick_add,
-        section_id: section.id
       %}
     {%- endfor -%}
    

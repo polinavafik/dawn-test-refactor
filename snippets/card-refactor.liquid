@@ -1,3 +1,4 @@
+{{ 'component-card-refactor.css' | asset_url | stylesheet_tag }}
 
 <div class="card-refactor">
   <div class="card-refactor__image">
@@ -9,9 +10,8 @@
       {{ card_product.title }}
     </h3>
     
-    <button class="card-refactor__add-to-cart-btn" data-product-id="{{ card_product.id }}">
+    <button class="card-refactor__btn">
       Add to Cart - {{ card_product.price | money }}
     </button>
   </div>
 </div>
-
