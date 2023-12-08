@@ -1,6 +1,6 @@
 {{ 'component-card-refactor.css' | asset_url | stylesheet_tag }}
 
-<section class="card-refactor {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+<div class="card-refactor {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
   <a class="card-refactor__link" href="{{ card_product.url }}">
     <div class="card-refactor__media">
       <img class="card-refactor__img" src="{{ card_product.featured_media | img_url: 'large' }}" alt="{{ card_product.title | escape }}">
@@ -15,13 +15,16 @@
   </a>
 
   <div class="card-refactor__content">
+    {%- liquid
+      assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id
+    -%}
     <product-form
       class="product-form"
       data-section-id="{{ section.id }}"
     >
       {%- form 'product',
         card_product,
-        id: card_product_form_id,
+        id: product_form_id,
         class: 'form',
         novalidate: 'novalidate',
         data-type: 'add-to-cart-form'
@@ -58,4 +61,4 @@
       {%- endform -%}
     </product-form>
   </div>
-</section>
+</div>

@@ -13,11 +13,18 @@
 
   <div class="refactor__content">
     {%- for product in products -%}
-      {% render 'card-refactor',
-        card_product: product,
-      %}
+      {% assign is_product_in_cart = false %}
+      
+      {%- for item in cart.items -%}
+        {% if item.product.id == product.id %}
+          {% assign is_product_in_cart = true %}
+        {% endif %}
+      {%- endfor -%}
+      
+      {%- unless is_product_in_cart -%}
+        {% render 'card-refactor', card_product: product %}
+      {%- endunless -%}
     {%- endfor -%}
-   
   </div>
 
 </div>

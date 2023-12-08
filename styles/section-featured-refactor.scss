@@ -3,6 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 50px;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
 
   &__title {
     color: #656874;
